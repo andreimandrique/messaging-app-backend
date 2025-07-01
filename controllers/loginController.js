@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import jwt from "jsonwebtoken";
 import jwtConfig from "../config/jwtConfig.js";
 import dotenv from "dotenv";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -29,7 +30,8 @@ const loginPost = async (req, res) => {
       return res.status(400).json({ error: "username does not exist" });
     }
 
-    if (user.password !== password) {
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) {
       return res.status(400).json({ error: "wrong password" });
     }
 
