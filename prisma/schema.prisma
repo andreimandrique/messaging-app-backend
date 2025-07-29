@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -12,17 +13,4 @@ model User{
   username String @unique
   password String
   created_at DateTime @default(now())
-}
-
-model Friend{
-  friend_id Int @id @default(autoincrement())
-  user_a Int
-  user_b Int
-}
-
-model Friend_Request{
-  friend_reqest_id Int @id @default(autoincrement())
-  user_a Int
-  user_b Int
-  requested_by Int
 }
