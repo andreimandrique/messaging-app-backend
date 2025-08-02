@@ -18,6 +18,8 @@ function rootSocketController(io) {
   io.on("connection", (socket) => {
     console.log(`user connected ${socket.id}`);
 
+    const username = socket.user.username;
+
     socket.on("joinRoom", (roomId) => {
       socket.join(roomId);
       console.log(`${socket.id} joined room ${roomId}`);
@@ -29,8 +31,7 @@ function rootSocketController(io) {
     });
 
     socket.on("messageRoom", ({ roomId, message }) => {
-      console.log(`${roomId} ${message}`);
-      io.to(roomId).emit("receiveMessage", message);
+      io.to(roomId).emit("receiveMessage", message, username);
     });
 
     socket.on("disconnect", () => console.log(`user disconnect ${socket.id}`));
