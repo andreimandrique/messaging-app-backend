@@ -22,12 +22,10 @@ function rootSocketController(io) {
 
     socket.on("joinRoom", (roomId) => {
       socket.join(roomId);
-      console.log(`${socket.id} joined room ${roomId}`);
     });
 
     socket.on("leaveRoom", (roomId) => {
       socket.leave(roomId);
-      console.log(`${socket.id} left room ${roomId}`);
     });
 
     socket.on("messageRoom", ({ roomId, message }) => {
