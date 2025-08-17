@@ -1,6 +1,10 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const socketCorsConfig = {
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URL,
   },
 };
 
