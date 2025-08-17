@@ -1,5 +1,5 @@
 const indexGet = (req, res) => {
-  res.json({ message: "Welcome to messaging app backend !" });
+  res.json({ message: "Welcome to Realtime Messaging App !" });
 };
 
 export { indexGet };
