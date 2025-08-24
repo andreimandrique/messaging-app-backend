@@ -12,7 +12,7 @@ npm install
 ## 3. Frontend Application
 For the frontend web application to use . 
 
-https://github.com/andreimandrique/blog-frontend
+https://github.com/andreimandrique/messaging-app-frontend
 
 ### 3.Set up environment variables: 
 Create .env file in the root directory and add the following 
